@@ -18,7 +18,7 @@
         "long-test": "tape test/extra/long.js",
         "download-test": "beefy test/browser/long.js --open -- -t brfs",
         "test": "tape test/*.js",
-        "ESM2": "",
+        "ESM": "mocha",
         "CJS": "tape test/*.js"
     },
     "author": "Jan Bölsche <jan@lagomorph.de>",
