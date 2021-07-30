@@ -19,7 +19,13 @@
         "download-test": "beefy test/browser/long.js --open -- -t brfs",
         "test": "tape test/*.js",
         "ESM": "mocha",
-        "CJS": "tape test/*.js"
+        "CJS": "tape test/*.js",
+        "rollup": "NODE_ENV=default rollup -c configs/rollup.config.js",
+        "rollup:preprocessed": "NODE_ENV=preprocessed rollup -c configs/rollup.config.js",
+        "rollup:transformed": "NODE_ENV=transformed rollup -c configs/rollup.config.js",
+        "webpack": "NODE_ENV=default webpack -c configs/webpack.config.js",
+        "webpack:preprocessed": "NODE_ENV=preprocessed webpack -c configs/webpack.config.js",
+        "webpack:transformed": "NODE_ENV=transformed webpack -c configs/webpack.config.js"
     },
     "author": "Jan Bölsche <jan@lagomorph.de>",
     "repository": {
@@ -36,14 +42,21 @@
     ],
     "main": "index.js",
     "devDependencies": {
+        "@rollup/plugin-commonjs": "^20.0.0",
+        "@rollup/plugin-node-resolve": "^13.0.4",
         "beefy": "^2.1.8",
         "brfs": "^1.2.0",
         "browserify": "^16.2.3",
         "concat-stream": "^1.4.7",
+        "rollup": "^2.55.1",
         "stream-equal": "^1.1.1",
         "tape": "^4.9.2",
         "tape-run": "^4.0.0",
-        "uglify-js": "^3.0.10"
+        "uglify-js": "^3.0.10",
+        "webpack": "^4.46.0",
+        "webpack-bundle-analyzer": "^4.4.2",
+        "webpack-cli": "^4.7.2",
+        "webpack-node-externals": "^3.0.0"
     },
     "dependencies": {
         "buffer": "^5.2.1",
