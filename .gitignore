@@ -3,4 +3,3 @@ test/fixtures/vmlinux.bin*
 npm-debug.log
 dist/
 rollup/
-webpack-bundles/

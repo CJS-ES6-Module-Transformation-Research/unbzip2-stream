@@ -16,7 +16,7 @@
 
   const config = {
     entry: path.resolve(__dirname, '..', pkg.main),
-    mode: 'development',
+    mode: 'production',
     output: {
       path: path.resolve(__dirname, '..', 'webpack-bundles'),
       filename: process.env.NODE_ENV + '.js',
