@@ -25,7 +25,7 @@
         "rollup:transformed": "NODE_ENV=transformed rollup -c configs/rollup.config.js",
         "webpack": "NODE_ENV=default webpack -c configs/webpack.config.js",
         "webpack:preprocessed": "NODE_ENV=preprocessed webpack -c configs/webpack.config.js",
-        "webpack:transformed": "NODE_ENV=transformed webpack -c configs/webpack.config.js"
+        "webpack:transformed": "NODE_ENV=transformed webpack -c configs/webpack.config.es.js"
     },
     "author": "Jan Bölsche <jan@lagomorph.de>",
     "repository": {
