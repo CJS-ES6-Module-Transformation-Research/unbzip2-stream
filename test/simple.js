@@ -1,10 +1,10 @@
-var unbzip2Stream = require('../index.js');
-var concat = require('concat-stream');
-var test = require('tape');
-var fs = require('fs');
+import unbzip2Stream from '../index.js';
+import concat from 'concat-stream';
+import test from 'tape';
+import { readFileSync } from 'fs';
 test('accepts data in both write and end', function (t) {
     t.plan(1);
-    var compressed = fs.readFileSync('test/fixtures/text.bz2');
+    var compressed = readFileSync('test/fixtures/text.bz2');
     var unbz2 = unbzip2Stream();
     unbz2.on('error', function (err) {
         t.fail(err.message);
@@ -18,7 +18,7 @@ test('accepts data in both write and end', function (t) {
 });
 test('accepts concatenated bz2 streams', function (t) {
     t.plan(1);
-    var compressed = fs.readFileSync('test/fixtures/concatenated.bz2');
+    var compressed = readFileSync('test/fixtures/concatenated.bz2');
     var unbz2 = unbzip2Stream();
     unbz2.on('error', function (err) {
         t.fail(err.message);
@@ -31,7 +31,7 @@ test('accepts concatenated bz2 streams', function (t) {
 });
 test('should emit error when stream is broken', function (t) {
     t.plan(1);
-    var compressed = fs.readFileSync('test/fixtures/broken');
+    var compressed = readFileSync('test/fixtures/broken');
     var unbz2 = unbzip2Stream();
     unbz2.on('error', function (err) {
         t.ok(true, err.message);
@@ -44,7 +44,7 @@ test('should emit error when stream is broken', function (t) {
 });
 test('should emit error when crc is broken', function (t) {
     t.plan(1);
-    var compressed = fs.readFileSync('test/fixtures/brokencrc.bz2');
+    var compressed = readFileSync('test/fixtures/brokencrc.bz2');
     var unbz2 = unbzip2Stream();
     unbz2.on('error', function (err) {
         t.ok(true, err.message);
@@ -57,7 +57,7 @@ test('should emit error when crc is broken', function (t) {
 });
 test('decompresses empty stream', function (t) {
     t.plan(1);
-    var compressed = fs.readFileSync('test/fixtures/empty.bz2');
+    var compressed = readFileSync('test/fixtures/empty.bz2');
     var unbz2 = unbzip2Stream();
     unbz2.on('error', function (err) {
         t.fail(err.message);
@@ -82,7 +82,7 @@ test('decompresses empty input', function (t) {
 });
 test('should emit error when block crc is wrong', function (t) {
     t.plan(1);
-    var compressed = fs.readFileSync('test/fixtures/brokenblockcrc.bz2');
+    var compressed = readFileSync('test/fixtures/brokenblockcrc.bz2');
     var unbz2 = unbzip2Stream();
     unbz2.on('error', function (err) {
         t.pass(err.message);
@@ -92,7 +92,7 @@ test('should emit error when block crc is wrong', function (t) {
 });
 test('should emit error when stream is broken in a different way?', function (t) {
     t.plan(1);
-    var truncated = fs.readFileSync('test/fixtures/truncated.bz2');
+    var truncated = readFileSync('test/fixtures/truncated.bz2');
     var unbz2 = unbzip2Stream();
     unbz2.on('error', function (err) {
         t.ok(true, err);
@@ -104,7 +104,7 @@ test('should emit error when stream is broken in a different way?', function (t)
 });
 test('detects incomplete streams', function (t) {
     t.plan(1);
-    var incomplete = fs.readFileSync('test/fixtures/nostreamcrc.bz2');
+    var incomplete = readFileSync('test/fixtures/nostreamcrc.bz2');
     var unbz2 = unbzip2Stream();
     unbz2.on('error', function (err) {
         t.ok(true, err);

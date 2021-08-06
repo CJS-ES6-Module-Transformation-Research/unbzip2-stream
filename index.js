@@ -1,9 +1,10 @@
-var through = require('through');
-var bz2 = require('./lib/bzip2.js');
-var bitIterator = require('./lib/bit_iterator.js');
+import through from 'through';
+import bz2 from './lib/bzip2.js';
+import bitIterator from './lib/bit_iterator.js';
+var defaultExport = {};
 var __exports;
 __exports = unbzip2Stream;
-module.exports = __exports;
+defaultExport = __exports;
 function unbzip2Stream() {
     var bufferQueue = [];
     var hasBytes = 0;
@@ -74,3 +75,4 @@ function unbzip2Stream() {
         }
     });
 }
+export default defaultExport;

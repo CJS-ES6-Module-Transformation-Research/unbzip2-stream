@@ -1,5 +1,5 @@
-var test = require('tape');
-var bitIterator = require('../lib/bit_iterator.js');
+import test from 'tape';
+import bitIterator from '../lib/bit_iterator.js';
 test('should return the correct bit pattern across byte boundaries', function (t) {
     t.plan(5);
     var bi = bitIterator(function () {
