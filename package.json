@@ -18,7 +18,7 @@
         "long-test": "tape test/extra/long.js",
         "download-test": "beefy test/browser/long.js --open -- -t brfs",
         "test": "tape test/*.js",
-        "ESM": "mocha",
+        "ESM": "mocha  test/simple.js ; mocha test/bit_iterator.js ",
         "CJS": "tape test/*.js",
         "rollup": "NODE_ENV=default rollup -c configs/rollup.config.js",
         "rollup:preprocessed": "NODE_ENV=preprocessed rollup -c configs/rollup.config.js",
